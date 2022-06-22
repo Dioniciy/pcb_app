@@ -9,7 +9,7 @@ import {
 } from "./actions.js";
 import { DEVICES_INITIAL_STATE } from "../../Configuration/index";
 const initial_state = {devices: DEVICES_INITIAL_STATE} 
-console.log(initial_state);
+//console.log(initial_state);
 
 export function devices(state = initial_state, action) {
   switch (action.type) {
