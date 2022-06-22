@@ -14,7 +14,7 @@ jobs:
           node-verison: '12.x'
 
       - name    : remove old build
-        run     : sudo rm -rf /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build
+        run     : rm -rf /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build
       - name    : Build npm
         run     : npm run build
   deployment: 
