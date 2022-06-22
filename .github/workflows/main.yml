@@ -7,10 +7,10 @@ jobs:
     steps:
       - name    : chekout repository
         uses    : actions/checkout@v2
-      - name    : steup node for npm
+      - name    : Setup node for npm
         uses    : actions/setup-node@master
         with:
-          node-verison: '10.x'
+          node-verison: '12.x'
       - name    : Install dependenies
         run     : npm install
       - name    : Build npm
