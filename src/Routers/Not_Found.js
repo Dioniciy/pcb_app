@@ -1,7 +1,7 @@
-import error from "img/not-found.jpg";
+import error from "../img/not-found.jpeg";
 import "./Not_Found.scss";
 
-export function NotFound() {
+export default function Not_Found() {
   return (
     <section className="not-found">
       <a href="/" className="btn btn--large">
