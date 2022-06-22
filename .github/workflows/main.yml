@@ -14,7 +14,7 @@ jobs:
       - name    : Install dependenies
         run     : npm install
       - name    : remove old build
-        run     : rm -r /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build
+        run     : sudo rm -r /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build
       - name    : Build npm
         run     : npm run build
   deployment: 
