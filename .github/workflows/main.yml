@@ -14,7 +14,7 @@ jobs:
       - name    : Install dependenies
         run     : npm install
       - name    : Build npm
-        run     : npm build
+        run     : npm run build
   deployment: 
       name    : Deployment
       needs   : build
@@ -22,6 +22,6 @@ jobs:
       steps   :
         - name    : Deploy files to nginx
           run     : |
-              sudo rm -rf /var/html/denchik/study/
-              sudo mv /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build* /var/html/denchik/study/ 
+              sudo rm -rf /var/html/denchik/sutdy/
+              sudo mv /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/dist* /var/html/denchik/sutdy/ 
       
