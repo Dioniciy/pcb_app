@@ -13,6 +13,8 @@ jobs:
           node-verison: '12.x'
       - name    : Install dependenies
         run     : npm install
+      - name    : remove old build
+        run     : rm -r /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build
       - name    : Build npm
         run     : npm run build
   deployment: 
@@ -22,6 +24,6 @@ jobs:
       steps   :
         - name    : Deploy files to nginx
           run     : |
-              sudo rm -rf /var/html/denchik/sutdy/
-              sudo mv /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/dist* /var/html/denchik/sutdy/ 
+              sudo rm -rf /var/html/denchik/sutdy/*
+              sudo mv /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build/* /var/html/denchik/sutdy/ 
       
