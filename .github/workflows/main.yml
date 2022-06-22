@@ -1,0 +1,17 @@
+name: CI
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on     : self-hosted
+    steps:
+      - name    : chekout repository
+        uses    : actions/checkout@v2
+      - name    : steup node for npm
+        uses    : actions/setup-node@master
+        with:
+          node-verison: '10.x'
+      - name    : install dependenies
+        run     : npm install
+      - name    : run npm
+        run     : npm start 
