@@ -13,6 +13,8 @@ jobs:
         uses    : actions/setup-node@master
         with:
           node-verison: '12.x'
+      - name    : Install dependencioes
+        run     : npm install
       - name    : Build npm
         run     : cd /home/nychvadim/actions-runner/_work/pcb_app/pcb_app | npm run build
   deployment: 
