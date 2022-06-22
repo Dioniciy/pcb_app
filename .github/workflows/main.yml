@@ -1,6 +1,7 @@
 name: CI
 on:
-  workflow_dispatch:
+  push:
+    branches    : master
 jobs:
   build:
     runs-on     : self-hosted
@@ -11,10 +12,9 @@ jobs:
         uses    : actions/setup-node@master
         with:
           node-verison: '12.x'
-      - name    : Install dependenies
-        run     : npm install
+
       - name    : remove old build
-        run     : sudo rm -r /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build
+        run     : sudo rm -rf /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build
       - name    : Build npm
         run     : npm run build
   deployment: 
