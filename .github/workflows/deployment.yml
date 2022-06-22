@@ -13,7 +13,7 @@ jobs:
         with:
           node-verison: '12.x'
       - name    : Build npm
-        run     : cd /home/nychvadim/actions-runner/_work/pcb_app/pcb_app | CI=true npm run build
+        run     : cd /home/nychvadim/actions-runner/_work/pcb_app/pcb_app | npm run build
   deployment: 
       name    : Deployment
       needs   : build
