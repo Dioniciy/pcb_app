@@ -11,10 +11,10 @@ jobs:
         uses    : actions/setup-node@master
         with:
           node-verison: '10.x'
-      - name    : install dependenies
+      - name    : Install dependenies
         run     : npm install
-      - name    : run npm
-        run     : build
+      - name    : Build npm
+        run     : npm build
   deployment: 
       name    : Deployment
       needs   : build
