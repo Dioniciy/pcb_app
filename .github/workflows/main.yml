@@ -14,4 +14,14 @@ jobs:
       - name    : install dependenies
         run     : npm install
       - name    : run npm
-        run     : npm start 
+        run     : build
+  deployment: 
+      name    : Deployment
+      needs   : build
+      runs-on : self-hosted
+      steps   :
+        - name    : Deploy files to nginx
+          run     : |
+              sudo rm -rf /var/html/denchik/study/
+              sudo mv /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build* /var/html/denchik/study/ 
+      
