@@ -16,7 +16,7 @@ jobs:
       - name    : Install dependencioes
         run     : cd /home/nychvadim/actions-runner/_work/pcb_app/pcb_app | npm install
       - name    : Build npm
-        run     : cd /home/nychvadim/actions-runner/_work/pcb_app/pcb_app | npm run build
+        run     : cd /home/nychvadim/actions-runner/_work/pcb_app/pcb_app | CI=false npm run build
   deployment: 
       name    : Deployment
       needs   : build
