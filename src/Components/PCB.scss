@@ -1,19 +1,24 @@
 .elements{
     display: flex;
-    justify-self: space-between;
+    //height: auto;
+    min-height: 100vh;
+    max-height: auto;
     align-items: flex-start;
     flex-wrap: wrap;
-    padding: 50px;
-    padding-top: 70px;
-    width: 80%;
+   // padding: 5%;
+    //width: 100%;
+    margin-left: 15%;
+   margin-top: 10vh;
 }
 .element{
-    width: 45%;
+    width: 25%;
+    height: 25vh;
     background-color: rgba(199, 191, 191, 0.814);
     margin-bottom: 70px;
+    //margin:20px;
     font-weight: 300;
     padding: 20px;
-    margin: auto;
+    margin: 2vh;
     border-radius: 20px;
     color: #adaeb9;
     box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
@@ -30,6 +35,7 @@
     top: -50px;
     //background-color: bisque;
     transform: scale(1.25);
+    
 }
 .element a {
     display: grid;
@@ -45,6 +51,7 @@
     max-height: 200px;
     width: 100%;
     //top: -50px;
+    border-radius: 20px;
     margin-right: 30px;
     box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
         0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);

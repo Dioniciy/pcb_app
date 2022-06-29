@@ -1,17 +1,12 @@
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import {devices} from "../features/products/reducer";
-// import {filters} from "../features/filters/reducers";
-// import {sliders} from "../features/sliders/reducers";
-// import {pages} from "../features/pages/reducers";
+
 import thunk from "redux-thunk";
 
 const middleware = applyMiddleware(thunk)
 
 const rootReducer =  combineReducers({
-     devices
-    // filters,
-    // sliders,
-    // pages
+     devices,
 })
 
 export const store = createStore(

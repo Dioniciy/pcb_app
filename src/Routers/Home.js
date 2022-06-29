@@ -1,14 +1,14 @@
 import React from "react";
 import PCB_element from "../Components/PCB"
 import './Home.scss';
-
+import axios from "axios";
 //import CardList from "components/CardList";
 import { useDispatch, useSelector } from "react-redux";
 //import { useHistory } from "react-router-dom";
 //import { selectActiveFilters } from "features/filters/selectors";
 import { useEffect, useState } from "react";
 //import { getRequestUrl } from "../../helpers/setRequestUrl";
-import { getDevices } from "../features/products/actions.js";
+import { getDevices, upload_devices } from "../features/products/actions.js";
 //import { selectProducts } from "../../features/products/selector";
 //import { Header } from "components/Header";
 import { URL_SEARCH } from "../Configuration/index";
@@ -16,6 +16,7 @@ import { URL_SEARCH } from "../Configuration/index";
 
 function Drow_element(element)
 {
+ 
    return <PCB_element 
         key = {element.id}
         id = {element.id}
@@ -30,47 +31,33 @@ function Drow_element(element)
 }
 
 export function Home() {
-  //const [searchValue, setSearchValue] = useState("");
-  //const history = useHistory();
+
   const dispatch = useDispatch();
- // const slidersState = useSelector(selectSliders);
- // const filters = useSelector(selectActiveFilters);
-  //const currentPage = useSelector(selectCurrentPage);
- // const sliders = Object.values(slidersState);
- // const devices = useSelector();
-  let devices = useSelector((state) => state.devices.devices)
- // const numberOfProducts = useSelector(selectProducts("numberOfProducts"));
-  const prodUrl = URL_SEARCH;
-  const url = prodUrl;
-  // getRequestUrl({
-  //   prodUrl,
-  //   filters,
-  //   searchValue,
-  //   sliders,
-  //   currentPage,
-  // });
+  let devices = useSelector((state) => state.devices.devices);
+  //console.log(devices);
+  // =  axios.get("http://localhost:4000/items");
+  //console.log(axios.get("http://localhost:4000/items"));
+  //.then((res) => {
+    //dispatch(productCardAction(GET_PRODUCTS, res.data));
+  //}
+  //axios.get("http://localhost:4000/items);
   
-  let  isLoading = 1;
-  useEffect(() => {
-     dispatch(getDevices(url));
-    }, [url],
-    isLoading = 0
+  let url;
+  
+
+  
+  let  isLoading = 0;
+  
+  useEffect(
+    () => {
+      
+  }
+    
   );
-
-   
-  // get_server_data = async() =>{
-  //   this.setState({ isLoading: false});
-  // };
-
-  // componentDidMount() {
-   
-  //    this.get_server_data();
-  // }
-
   
-   //console.log(devices);
+
     return  (
-        <section className="container">
+       <section className="container">
           {
           isLoading
           ? (<div className="loader">

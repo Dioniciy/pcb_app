@@ -1,7 +1,7 @@
 import React from "react";
 import  PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "./element.scss";
+import "./PCB.scss";
 
 function PCB_element({ id, title, in_voltage, price, price_unit, description, image}) {
     return (
@@ -19,13 +19,13 @@ function PCB_element({ id, title, in_voltage, price, price_unit, description, im
                 },
                 }}
             >
-            <img  src = {image} alt={title} title={title}></img>
-            <div className="element_column">
-                <h3 className="element_title">{title}</h3>
-                <h5 className="element_price">{price} {price_unit}</h5>
-                <h5 className="element_in_voltage">{in_voltage}</h5>                
-                <p className="element_description">{description.slice(0, 140)}...</p >     
-            </div>
+                <img  src ={ require(`../../../source/${image}`)} alt={title} title={title}></img>
+                <div className="element_column">
+                    <h3 className="element_title">{title}</h3>
+                    <h5 className="element_price">{price} {price_unit}</h5>
+                    <h5 className="element_in_voltage">{in_voltage}</h5>                
+                    <p className="element_description">{description.slice(0, 30)}...</p >     
+                </div>
             </Link>
         </div>
     ) ;

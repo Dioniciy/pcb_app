@@ -1,3 +1,4 @@
+import React from "react";
 import error from "../img/not-found.jpeg";
 import "./Not_Found.scss";
 

@@ -3,7 +3,10 @@ import {
   useLocation,
 } from 'react-router-dom';
 import {useSelector} from "react-redux";
-import "./detail_element.scss" 
+import "./Detail.scss" 
+import "./Home.scss"
+import {Navigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Drow_element(element)
 {
@@ -20,8 +23,8 @@ function Drow_element(element)
 }
 function Drow_detail({ id, title, in_voltage, price, price_unit, description, image}) {
   return (
-      <div className="detail_element">
-          <img  src = {image} alt={title} title={title}></img>
+      <div>
+          <img  src = {require(`../../../source/${image}`)} alt={title} title={title}></img>
           <div className="element_column">
               <h3 className="element_title">{title}</h3>
               <h5 className="element_price">{price} {price_unit}</h5>
@@ -38,24 +41,46 @@ function Get_element() {
 
   let numEl = parseInt(location.pathname.match(/\d+/), 10);
   //var Home = require("../Routers/Home.js");
-  let nfts = useSelector((state) => state.devices.devices)
+  let dev = useSelector((state) => state.devices.devices)
   let id = numEl; //useParams()\
-  let item =  nfts.find((elem) => elem.id == Number(id) )
+  let item;
+  console.log(dev);
+  if(typeof dev != "undefined") 
+  {
+    item =  dev.find((elem) => elem.key == Number(id) )
+  }
+  
   console.log(item);
   
   return item;
 }
+function no_exist()
+{
+  return(
+    <div>
+      <h1>ERROR DEVICE ID </h1>
+    </div>
+  )
 
-
+}
 export function Detail()
 {
-  const elem = Get_element();
-
+  const element = Get_element();
+  useEffect(
+    () => {
+      
+    }
+  )
 
   return(
-      <span>
-        {Drow_element(elem)}
-      </span>  
+   <div className="container_det">
+     <div className="detail_element">
+       {
+          typeof element ==="undefined" ? no_exist() : Drow_element(element)
+       }
+     </div>
+   
+   </div>
   ) 
 }
 
