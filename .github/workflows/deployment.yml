@@ -1,7 +1,8 @@
 name: Deployment_
 on:
   push:
-    branches    : master
+    branches    : master 
+  workflow_dispatch:
 jobs:
   build:
     runs-on     : self-hosted
@@ -12,11 +13,10 @@ jobs:
         uses    : actions/setup-node@master
         with:
           node-verison: '12.x'
-
-      - name    : remove old build
-        run     : rm -rf /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build
+      - name    : Install dependencioes
+        run     : cd /home/nychvadim/actions-runner/_work/pcb_app/pcb_app | npm install
       - name    : Build npm
-        run     : cd /home/nychvadim/actions-runner/_work/pcb_app/pcb_app | CI=true npm run build
+        run     : cd /home/nychvadim/actions-runner/_work/pcb_app/pcb_app | CI=false npm run build
   deployment: 
       name    : Deployment
       needs   : build
@@ -24,6 +24,6 @@ jobs:
       steps   :
         - name    : Deploy files to nginx
           run     : |
-              rm -rf /var/html/denchik/sutdy/*
-              mv /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build/* /var/html/denchik/sutdy/ 
+              sudo rm -rf /var/html/denchik/sutdy/*
+              sudo mv /home/nychvadim/actions-runner/_work/pcb_app/pcb_app/build/* /var/html/denchik/sutdy/ 
       
